@@ -2,7 +2,8 @@ import json
 from apiClient import APIClient
 from dataStorage import DataStorage
 
-if __name__ == "__main__":   
+if __name__ == "__main__": 
+  try:
     api_client = APIClient()
  
     users = api_client.get_users(5)
@@ -30,3 +31,5 @@ if __name__ == "__main__":
             ensure_ascii=False
         )
     )
+  except (TypeError, ValueError) as error:
+    print(f"Lỗi dữ liệu: {error}")
